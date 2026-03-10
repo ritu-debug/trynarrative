@@ -1,0 +1,8 @@
+# Narrative tests
+on:
+  push:
+    test_suites: ["SUITE-9"]
+  pull_request:
+    tests: ["TEST-1", "TEST-2"]
+  schedule:
+    test_suites: ["SUITE-10"]
