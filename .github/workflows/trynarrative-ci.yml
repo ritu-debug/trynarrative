@@ -1,0 +1,22 @@
+# Triggers to run Narrative tests
+name: TryNarrative QA
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    
+    # Required: Grants the temporary runner permission to dispatch the trigger
+    permissions:
+      contents: write 
+
+    steps:
+      - name: Trigger AI Tests
+        uses: trynarrative/github-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
